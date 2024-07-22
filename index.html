@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Loypoll Exposé</title>
+   <meta property="og:title" content="The Loypoll Exposé" />
+   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"> 
+   <meta property="og:url" content="loypoll.com" />
+   <meta property="og:image" content="media/embed.gif" />
+   <meta property="og:description" content="An expo showing what Cheesed Up does." />
+   <link rel="icon" type="image/x-icon" href="media/favicon.ico" />
+   <link href="stylin.css" rel="stylesheet" media="screen" />
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<header>
+	<div class=headerbox>
+		<h1>Welcome to the Loypoll Exposé</h1>
+		<p><a href="https://discord.gg/NErx8DcaF9">Discord</a> | <a href="https://loypoll.com/creep">Creep</a> | <a href="https://loypoll.com/cuck">Cuck</a> | <a href="https://loypoll.com/tokens">Tokens</a> | Coming Soon...</p>
+	</div>
+</header>
+
+<body>	
+	<div class=headerbox>
+		<h2>29/01/2024 - Response to <a href="https://loypoll.com/Response">loypoll's video.</a></h2>
+	</div>
+	<div class=headerbox id="ohlogger">
+		<h2>Git History (or what's relevant)</h2>
+		<div class=pictureshit>
+			<p>Loypoll has put an IP logger in Cheesed Up. it sends it to a discord webhook along with your computer's info.<br>
+			Note: As of October 27th, 2023, the IP logger has been removed but we are keeping this up to inform others.<br>
+			You can view the commit history from a fork of the source code <a href="https://github.com/zyledev/CheesyPizza">here.</a></p>
+			<p>October 5th</p>
+			<img src="media/oct5thheader.png"/><br>
+			<img src="media/oct5thp1.png"/><br>
+			<img src="media/oct5thp2.png"/><br>
+			<p>October 8th</p>
+			<img src="media/oct8thheader.png"/><br>
+			<img src="media/oct8th.png"/><br>
+			<p>October 11th</p>
+			<img src="media/oct11thheader.png"/><br>
+			<img src="media/oct11thp1.png"/><br>
+			<img src="media/oct11thp2.png"/><br>
+			<img src="media/oct11thheader2.png"/><br>
+			<img src="media/oct11th2.png"/><br>
+			<p>October 11th</p>
+			<img src="media/oct11thheader.png"/><br>
+			<img src="media/oct11thp1.png"/><br>
+			<img src="media/oct11thheader2.png"/><br>
+			<img src="media/oct11thp2.png"/><br>
+			<img src="media/oct11th2.png"/><br>
+			<p>October 12th</p>
+			<img src="media/oct12thheader.png"/><br>
+			<img src="media/oct12th.png"/><br>
+			<p>October 13th</p>
+			<p>Now the numbers that you've seen through out the page are <b>NOT</b> the ips, these are discord ids that make it so if it detects your account, it makes the ip logger go off.<br><a href = "#IPLOGGER">Click here for the explanation.</a></p>
+			<img src="media/oct13thheader.png"/><br>
+			<img src="media/oct13th.png"/><br>
+			<img src="media/oct13thheader2.png"/><br>
+			<img src="media/oct13th2p1.png"/><br>
+			<img src="media/oct13th2p2.png"/><br>
+			<p>This is when Null made a truce with the CTCU server.  He removed everyone (except juicyham44) from the list.</p>
+			<p>October 18th</p>
+			<img src="media/oct18thheader.png"/><br>
+			<img src="media/oct18th.png"/><br>
+			<img src="media/oct18thheader2.png"/><br>
+			<img src="media/oct18th2.png"/><br>
+			<p>Proof this is still here to this day, able to be uncommented out at any moments notice.</p>
+			<img src="media/yeah.png" />
+		</div>
+	</div>
+	<div class=headerbox>
+		<h2>Lies told to us</h2>
+		<img src="media/lies.png"/>
+		<p>As you'll soon see, what they are saying here is not only a lie, but covering up something potentially dangerous.</p>
+		<p>Now your IP is not personal information, as they said alot of services log your IP. <strong>HOWEVER,</strong> the way Cheesed Up! was collecting the IP (while not even being online mind you) is the issue here.</p>
+		<p>Cheesed Up was taking your ip (in a list of victims), uploading it to a webhook and telling him exactly who you are. <b>Google does not know who you are based off of ip. No one does.</b></p>
+		<p>Note: What RadixComet is saying here with "the only logging of your IP is when you join a server" is a straight up lie, the IP being logged is not even for the server, it is for sending to a discord webhook along with your computers name.</p>
+		<br>
+		<h2>Here we have a nice message from Loypoll.</h2>
+		<p><img src="media/admission.png"/><br>Now from the time that this message was said (October 16, 2023) this was not <a href= "#ohlogger">actually removed</a></p>
+		<p>Note: as of the 27th of October, the IP Logger code has been removed. The DiscordID list targeting people has not been however.</p>
+	</div>
+	<div class=headerbox id = "IPLOGGER">
+		<h2>Code Showcase</h2>
+		<p>Note: This code showcase is based of source code from before October 27th.</p>
+		<div class=pictureshit>
+			<h3>Create Code</h3>
+			<p>What the "Create" event here does is simply make sure the object is ready for use by initializing the variables needed and creating a function if desired. 
+			In this case, active is for if the RPC is working or not, character is the character you're playing as, userid is for your discordID, request is used for many things and subject is for identification.</p>
+			<img src="media/create.png"/>
+			<h3>Alarm 0 Code</h3>
+			<p>Now, what this alarm does in this case is it makes sure the build is either YYC or running from source, then it disables experimental mode and checks if the "request" variable is a string.
+			If it isn't, creates a file named "dead" with the text seen inside. 
+			After this if your room location isn't any of the one refrenced it sends you to the "Realtitlescreen" room, then it check if the internet is connected. 
+			If it isn't, it closes the game.
+			Now comes the harder pill to swallow, after this the game fetches your IP address from a site called "api.ipify.org" and stores it into the "request" variable, ready to be used.
+			Now if the request check fails, it insteads sends a "global message" (basically the giant onscreen messages from ptt) with the contents of the "request" variable and your pc name.
+			It then activates "Good Mode", making the game virtually unplayable.</p>
+			<img src="media/alarm.png"/>
+			<h3>Async - HTTP Code</h3>
+			<p>What this code is simple enough, but i will explain it anyways. 
+			This first checks if the "id" thing is the same as the "request" variable and if the game is built in YYC or running from source.
+			If this check passes, it stores a function into a variable named "q" and decodes a string that is a discord webhook. 
+			It then stores this into a variable named "web".
+			After this, it creates a map for the body of the message, containing loy's discord id to be pinged, async_load[? "result"](your ip address), your PC name, the "Subject" number that you were assigned, and the version of the game that you're running.
+			After this is done, it then pushes an https request to the webhook, sending the message to loypoll in a private server, where he stores it all.
+			It then stores your IP into the "request" variable, ready to be used by the Alarm 0 event.
+			</p>
+			<img src="media/http async.png"/>
+			<h3>Async - Social Code</h3>
+			<p>Now what this does is very simple, first it makes sure the discord rpc is working properly, and if it's all good to go, it sets the "a" variable with your discord id.
+			It then sets the "userid" variable with the contents of the "a" variable, and creates a variable array named "lockout", containing the discord IDs of everyone he wants to hit.
+			It then checks through every value in the array, and if one matches with the "a" variable, it sets the position of the array to the "subject" variable and runs the Alarm 0 event.
+			The rest of what you see(the green stuff) is the older lockout system, and potentially more people he wants to hit.</p>
+			<img src="media/social1.png"/>
+			<img src="media/social2.png"/>
+			<img src="media/social3.png"/>
+			<img src="media/social4.png"/>
+			<img src="media/social5.png"/>
+			<h3>Video Demonstration</h3>
+			<p>Screw the theoretical, this is how the code would behave in a real world situation (with the webhook changed to a different url of course)</p>
+			<h3>
+				<video width="640" height="480" controls>
+					<source src="media/demo.mp4" type="video/mp4">
+				</video>
+			</h3>
+			<p><a href="https://mega.nz/folder/hUFmTKCY#_qADqIetQ6I5zuGKgojG4g">Pizza Tower Cheesed Up source code archive for evidence purposes.</a>
+			<a href="https://www.mediafire.com/file/ojiuo8qzfgj71xl/Cheesed+Up+Source+Archive.zip/file">(mirror)</a>
+			<br>
+			<a href="https://youtu.be/rLnW2ZXQd_Q">A response to Loypoll's "Pizza Tower's community holds grudges" video. (Best experienced with the contents of this site)</a></p>
+		</div>
+	</div>
+	
+	<div class=headerbox id = "RESPONSE">
+		<h2>Responses</h2>
+		<div class=pictureshit>
+			<p>Now there have been <b>3</b> responses to the IP logger stuff.</p>
+			<h3>The First</h3>
+			<p>Now unfortunetly, we never saved his response since it was written in the #announcements channel of Cheesed Up!. And said channel got deleted and recreated on December 8th, 2023.<br>
+			So a lot of this is going to be going off memory. From what we remember, the response was on October 27th, 2023, where Loypoll downplayed what he was going to do with the IP logger and called this website a "liar".<br>
+			We kinda did not lie about any of this and made a response.<br>
+			<img src="media/response1.png" /></p><br>
+			<h3>The Second</h3>
+			<p>Now, we do actually HAVE the second response archived. Released on November 26th, 2023, it treated the situation as a joke. Have a watch here!<br>
+			<video width="640" height="480" controls><source src="media/video1.mp4" type="video/mp4"></video><br>
+			Now of course we made a response, since the contents of his response was treated as a complete joke and did not even cover what he was being mainly accused of.<br>
+			You can see our response down below.<br>
+			<img src="media/response2.png" /></p><br>
+			<h3>The Third (and currently last)</h3>
+			<p>Now on to the third one. This one really has meat on it's bones and was actually a decent response (kinda shocking coming from "That Guy"). This was released on December 9th, 2023.<br>
+			You can watch it down here.<br>
+			<video width="640" height="480" controls><source src="media/response.mp4" type="video/mp4"></video><br>
+			We have not responded to this yet. All the information in this video was correct apart from a few things and we were tired having to deal with Loypoll asking time and time again to take down this website.<br>
+			But here's an official response to it! So, the information in this video is almost all true. He did get nicer during PTT and all that, until he got caught cheating on nullptrdj (also known as Soapy/Soapychu).<br>
+			After that he decided to go on a whole tangent about how PTT stole his code, even though he was on the project so all contributions were most likely to stay. Moving on, everything else seems to be true until we get to the IP logger part.<br>
+			The IP logger stuff that he talks about is all true! Except for how we got the source code to his project. Melia was actually working with a Cheesed Up! developer who had access to the source code, and she passed on the source code to us to put this webpage together.<br>
+			Radix/RadixComet was not involved in anyway and it is actually another Cheesed up developer, who for privacy won't be named. As for the harrassement part of the response, this website was created to inform people so they can protect themselves online.<br>
+			<b>Not everyone are what they seem, and we wanted to get that message across in an informative way.</b></p>	
+		</div>	
+	</div>
+	<!---
+	<div class="musicbox">
+		<h3>Music Control</h3>
+		<audio controls autoplay loop id="music">
+			<source src="media/music.mp3" type="audio/mpeg">
+		</audio>
+		<p>You can disable / change the music volume here.</p>
+		<button id="Xbutton">X</button>
+	</div>	
+	--->
+	<div id="dimScreen">
+            <div>
+                <h1>This page is made to inform people about the danger that Loypoll and his project, "Cheesed Up!" can bring.</h1>
+				<h2>Nothing from this is "Taken out of context", "Framed wrong" nor "Faked".</h2>
+				<p>Click anywhere to continue.</p>
+            </div>
+    </div>
+
+	<script>
+		$(document).ready(function() {
+			$("#dimScreen").click(function() {
+				$("#dimScreen").fadeOut();
+			});
+			$("#Xbutton").click(function() {
+				var audio = document.getElementById("music");
+				audio.pause();
+				$(".musicbox").remove();
+			});
+		});
+	</script>
+
+	
+</body>
+</html>

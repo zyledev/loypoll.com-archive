@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="LoyCreep" />
+    <meta property="og:url" content="/creep" />
+    <meta property="og:image" content="/images/loypollsighting.gif" />
+    <meta property="og:description" content="A collection of videos, images and tweets posing loypoll as an absolute creep." />
+    <meta name="theme-color" content="#FF0000">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+
+        body {
+            background-color: black;
+        }
+
+        span {
+            color: rgba(245, 245, 245);
+        }
+
+        .container {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .rainbow {
+            margin-top: 0px;
+            margin-bottom: 10px;
+            font-family: sans-serif;
+            font-size: 6rem;
+            background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        #dimScreen {
+            position: fixed;
+            padding: 0;
+            margin: 0;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 1);
+            text-align: center;
+        }
+
+        a {
+            color: rgba(245, 245, 245);
+        }
+
+        #warningContainer {
+            position: fixed;
+            width: 40%;
+            text-align: center;
+            top: 25%;
+            left: 50%;
+            padding: 20px;
+            transform: translate(-50%, 0);
+        }
+
+        .material-symbols-outlined {
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+        }
+
+        .gallery {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>loycreep</title>
+</head>
+
+<body>
+    <div class="container">
+        <span>Hello, and welcome to a collection of:</span>
+        <h1 class="rainbow">loypoll being a creep!</h1>
+        <span id="items">In here you can find anything you want. </span><br>
+        <span>We have everything. Or, we think so. Contact <a href="https://e-z.bio/nildev" target="_blank">null</a> or <a href="https://zyle.dev" target="_blank">zyle</a> if
+            there's anything missing.</span><br>
+        <span>Note: loypoll is chronically online so there's more to come!</span><br><br><br>
+        <div class="gallery">
+            <span class="material-symbols-outlined" id="backward">
+                arrow_back
+            </span>
+            <img src="/creep/zipdump/1.png" id="currentImage">
+            <span class="material-symbols-outlined" id="forward">
+                arrow_forward
+            </span>
+        </div>
+		<audio id="song">
+			<source src="29_Gallery.mp3" type="audio/mpeg">
+		</audio>
+        <!-- NSFW banner stuff -->
+        <div id="dimScreen">
+            <div id="warningContainer">
+                <span>The following page contains NSFW content. Proceed at your own risk.</span><br>
+				<span>Click anywhere to continue.</span>
+                <span id="countdown"></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        var CurrentIndex = 1;
+        var image = $("#currentImage");
+        $("#forward").click((e) => {
+            e.preventDefault();
+            CurrentIndex++;
+            image.fadeOut(500, () => {
+                image.prop("src", `/creep/zipdump/${CurrentIndex}.png`)
+                image.on("load", () => {
+                    image.fadeIn(500, () => {$("html, body").animate({ scrollTop: $(document).height() }, 500)})
+                })
+            })
+        })
+
+        $("#backward").click((e) => {
+            e.preventDefault();
+            CurrentIndex--;
+            image.fadeOut(500, () => {
+                image.prop("src", `/creep/zipdump/${CurrentIndex}.png`)
+                image.on("load", () => {
+                    image.fadeIn(500, () => {$("html, body").animate({ scrollTop: $(document).height() }, 500)})
+                })
+            })
+        })
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        };
+        $("#dimScreen").click((e) => {
+            $("#dimScreen").fadeOut()
+			var audio = document.getElementById("song");
+			audio.play();
+			audio.volume = 0.25;
+        })();
+        const initalText = "In here you can find anything you want. "
+        const items = ["Videos", "Screenshots", "Tweets"]
+        async function iterator() {
+            for (let item of items) {
+                $("#items").text(initalText + item + ".")
+                await sleep(1000);
+            }
+            iterator()
+        }
+        iterator()
+    </script>
+</body>
+
+</html>
